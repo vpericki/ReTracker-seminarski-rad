@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dpilipovic" id="table-real-estate-type-20210718-01">
+        <createTable tableName="REAL_ESTATE_TYPE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="REAL_ESTATE_TYPE"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-real-estate-type-20210718-02">
+        <createSequence sequenceName="REAL_ESTATE_TYPE_ID_SEQ" startValue="1" incrementBy="1"/>
+        <rollback>
+            <dropSequence sequenceName="REAL_ESTATE_TYPE_ID_SEQ"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-real-estate-type-20210718-03">
+        <insert tableName="REAL_ESTATE_TYPE">
+            <column name="TYPE" value="LOT"/>
+        </insert>
+        <insert tableName="REAL_ESTATE_TYPE">
+            <column name="TYPE" value="APARTMENT"/>
+        </insert>
+        <insert tableName="REAL_ESTATE_TYPE">
+            <column name="TYPE" value="HOUSE"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

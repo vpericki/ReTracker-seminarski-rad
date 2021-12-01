@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
+
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+.leaflet-container {
+  height: 100%;
+}

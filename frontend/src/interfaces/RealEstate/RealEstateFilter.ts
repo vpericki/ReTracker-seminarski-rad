@@ -1,0 +1,31 @@
+import { FilterAddress } from "./FilterAddress";
+
+export interface RealEstateFilter {
+  name?: string,
+  description?: string,
+  minRentPrice?: number,
+  maxRentPrice?: number,
+  minSellPrice?: number,
+  maxSellPrice?: number,
+  createDateAfter?: Date,
+  createDateBefore?: Date,
+  minRating?: number,
+  maxRating?: number,
+  minQuadrature?: number,
+  maxQuadrature?: number,
+  minRooms?: number,
+  maxRooms?: number,
+  minBaths?: number,
+  maxBaths?: number,
+  forRent?: boolean,
+  forSale?: boolean,
+  realEstateTypeList?: number[],
+  address?: FilterAddress,
+  radius?: number,
+  userIdList?: number[],
+  companyIdList?: number[],
+  longitudeA?: number,
+  longitudeB?: number,
+  latitudeA?: number,
+  latitudeB?: number
+}

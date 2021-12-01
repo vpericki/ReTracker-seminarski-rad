@@ -1,0 +1,23 @@
+spring:
+    liquibase:
+        change-log: classpath:/db/master.xml
+    datasource:
+        url: jdbc:postgresql://localhost:5432/real_estate_tracker
+        username: postgres
+        password: postgres
+    jpa:
+        properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    security:
+        jwt:
+            secret: imamijatetkasefstaniceuBazelualiotompotomkuratibikseoteoslanca
+    mail:
+        host: smtp.office365.com
+        port: 587
+        protocol: "smtp"
+        properties:
+            mail:
+                smtp:
+                    starttls:
+                        enable: true
+        password: "password"
+        username: "mail@outlook.com"

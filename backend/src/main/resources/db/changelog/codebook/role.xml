@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dpilipovic" id="table-role-20210315-01">
+        <createTable tableName="ROLE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="ROLE"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-role-20210315-02">
+        <createSequence sequenceName="ROLE_ID_SEQ" startValue="1" incrementBy="1"/>
+        <rollback>
+            <dropSequence sequenceName="ROLE_ID_SEQ"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-role-20210315-03">
+        <insert tableName="ROLE">
+            <column name="NAME" value="ROLE_USER"/>
+        </insert>
+        <insert tableName="ROLE">
+            <column name="NAME" value="ROLE_ADMIN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

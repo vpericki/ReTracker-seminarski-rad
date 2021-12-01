@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dpilipovic" id="table-real-estate-rating-20211024-01">
+        <createTable tableName="REAL_ESTATE_RATING">
+            <column name="REAL_ESTATE_ID" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="REAL_ESTATE_RATING_REAL_ESTATE_FK" referencedTableName="REAL_ESTATE" referencedColumnNames="ID"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="REAL_ESTATE_RATING_USER_FK" referencedTableName="USER_ACCOUNT" referencedColumnNames="ID"/>
+            </column>
+            <column name="RATING" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="REAL_ESTATE_RATING"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-real-estate-rating-20211024-02">
+        <addPrimaryKey columnNames="REAL_ESTATE_ID, USER_ID" tableName="REAL_ESTATE_RATING" constraintName="REAL_ESTATE_RATING_PKEY"/>
+    </changeSet>
+</databaseChangeLog>

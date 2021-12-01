@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="db/changelog/codebook/role.xml"/>
+    <include file="db/changelog/codebook/real_estate_type.xml"/>
+    <include file="db/changelog/table/address.xml"/>
+    <include file="db/changelog/table/company.xml"/>
+    <include file="db/changelog/table/user.xml"/>
+    <include file="db/changelog/table/real_estate.xml"/>
+    <include file="db/changelog/table/image.xml"/>
+    <include file="db/changelog/table/real_estate_rating.xml"/>
+</databaseChangeLog>

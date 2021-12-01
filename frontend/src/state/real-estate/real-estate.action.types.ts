@@ -1,0 +1,4 @@
+export enum RealEstateActionTypes {
+  GET_USER_LISTINGS = 'GET_USER_LISTINGS',
+  DELETE_USER_LISTING = 'DELETE_USER_LISTING'
+}

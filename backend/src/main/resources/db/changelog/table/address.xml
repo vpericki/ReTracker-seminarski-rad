@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dpilipovic" id="table-address-20210718-01">
+        <createTable tableName="ADDRESS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="COUNTRY" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATE" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CITY" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STREET" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOUSE_NUMBER" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FLOOR" type="INT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="DOOR_NUMBER" type="VARCHAR(10)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="ADDRESS"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-address-20210718-02">
+        <createSequence sequenceName="ADDRESS_ID_SEQ" startValue="1" incrementBy="1"/>
+        <rollback>
+            <dropSequence sequenceName="ADDRESS_ID_SEQ"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="dpilipovic" id="table-address-20211121-01">
+        <addColumn tableName="ADDRESS">
+            <column name="LONGITUDE" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LATITUDE" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
